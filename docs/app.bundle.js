@@ -106,6 +106,7 @@ function onLoad() {
 
   // Store the sections for laterz
   const groups = {};
+  var sectionGroups;
 
   // Load all stl files
   __WEBPACK_IMPORTED_MODULE_0__stlFiles__["a" /* default */].forEach(function (section) {
@@ -126,11 +127,20 @@ function onLoad() {
         sectionGroup.add(item);
       });
     });
-
-    sectionGroup.scale.set(0.4, 0.4, 0.4);
-    scene.add(sectionGroup);
   });
-  // console.log('groups', groups)
+
+  // Nested so the constraints match
+  groups.e.add(groups.f);
+  groups.d.add(groups.e);
+  groups.c.add(groups.d);
+  groups.b.add(groups.c);
+  groups.a.add(groups.b);
+  groups['0'].add(groups.a);
+  sectionGroups = groups['0'];
+  sectionGroups.scale.set(0.4, 0.4, 0.4);
+  console.log('scene.groups.c', groups.c);
+
+  scene.add(sectionGroups);
   scene.groups = groups;
 
   // new rotation logics
@@ -139,33 +149,23 @@ function onLoad() {
     switch (id) {
       case 'a':
         scene.groups.a.rotation.y = rads;
-        scene.groups.b.rotation.y = rads;
-        scene.groups.c.rotation.y = rads;
-        scene.groups.d.rotation.y = rads;
-        scene.groups.e.rotation.y = rads;
-        scene.groups.f.rotation.y = rads;
         break;
       case 'b':
         scene.groups.b.rotation.z = rads;
-        scene.groups.c.rotation.z = rads;
-        scene.groups.d.rotation.z = rads;
-        scene.groups.e.rotation.z = rads;
-        scene.groups.f.rotation.z = rads;
         break;
       case 'c':
-        scene.groups.c.rotation.z = rads;
-        scene.groups.d.rotation.z = rads;
-        scene.groups.e.rotation.z = rads;
-        scene.groups.f.rotation.z = rads;
+        // TODO: this!
+        console.log('val', val / 100);
+        // scene.groups.c.position.y = scene.groups.c.position.y + Math.sin(val/100)
+        // scene.groups.c.position.x = scene.groups.c.position.x + Math.cos(val/100) + 1.5
+        scene.groups.c.rotation.z = val / 100;
+
         break;
       case 'd':
         scene.groups.d.rotation.y = rads;
-        scene.groups.e.rotation.y = rads;
-        scene.groups.f.rotation.y = rads;
         break;
       case 'e':
         scene.groups.e.rotation.z = rads;
-        scene.groups.f.rotation.z = rads;
         break;
       case 'f':
         scene.groups.f.rotation.y = rads;
