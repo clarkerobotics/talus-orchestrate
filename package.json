@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "three": "^0.87.1",
+    "three-orbit-controls": "^82.1.0",
     "three-stl-loader": "^1.0.6"
   }
 }

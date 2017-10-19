@@ -1,3 +1,5 @@
+const OrbitControls = require('three-orbit-controls')
+
 class SceneHelper {
 
   constructor(options = {}) {
@@ -7,6 +9,7 @@ class SceneHelper {
     this.render = () => {}
 
     // start it!
+    this.orbital = OrbitControls(options.THREE)
     this.init()
 
     return this;
@@ -32,6 +35,7 @@ class SceneHelper {
 
     // position and point the camera to the center of the scene
     this.camera.lookAt(new _this.three.Vector3(0, 50, 0))
+    var controls = new this.orbital(_this.camera)
 
     // add spotlight for the shadows
     this.spotLight = new _this.three.SpotLight(0xffffff)
@@ -43,13 +47,6 @@ class SceneHelper {
 
     var y = 50
     this.render = () => {
-      // if (this.groups) {
-      //   this.groups.a.rotation.y += ( targetRotation - this.groups.a.rotation.y ) * 0.5;
-      // }
-
-      // y += ( targetRotation - y ) * 0.05;
-      // this.camera.lookAt(new _this.three.Vector3(0, 50, y))
-
       // render using requestAnimationFrame
       requestAnimationFrame(_this.render)
       this.webGLRenderer.render(_this.scene, _this.camera)
