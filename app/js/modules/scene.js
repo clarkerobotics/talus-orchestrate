@@ -35,12 +35,25 @@ class SceneHelper {
 
     // position and point the camera to the center of the scene
     this.camera.lookAt(new _this.three.Vector3(0, 50, 0))
-    var controls = new this.orbital(_this.camera)
+    var controls = new this.orbital(_this.camera, el)
 
-    // add spotlight for the shadows
-    this.spotLight = new _this.three.SpotLight(0xffffff)
-    this.spotLight.position.set(150, 150, 150)
+    // Add some #cute lights
+    var ambient = new _this.three.AmbientLight( 0xffffff, 0.4 );
+		this.scene.add( ambient );
+		this.spotLight = new _this.three.SpotLight( 0xffffff, 0.75 );
+		this.spotLight.position.set(250, 250, 150);
+		this.spotLight.angle = Math.PI / 4;
+		this.spotLight.penumbra = 0.05;
+		this.spotLight.decay = 2;
+		this.spotLight.distance = 2000;
     this.scene.add(_this.spotLight)
+		this.spotLight2 = new _this.three.SpotLight( 0xffffff, 0.75 );
+		this.spotLight2.position.set(-250, 50, 150);
+		this.spotLight2.angle = - (Math.PI / 4);
+		this.spotLight2.penumbra = 0.05;
+		this.spotLight2.decay = 2;
+		this.spotLight2.distance = 2000;
+    this.scene.add(_this.spotLight2)
 
     // add the output of the renderer to the html element
     document.getElementById(_this.options.element).appendChild(_this.webGLRenderer.domElement)

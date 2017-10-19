@@ -35,6 +35,9 @@ export default [{
   }, {
     file: `${sections.a}/Base_Mount_Top_v1.stl`,
     color: colors.primary
+  }, {
+    file: `${sections.a}/Motor_Mock.stl`,
+    color: '999999'
   }]
 }, {
   // Base Section A Rotation
@@ -65,9 +68,6 @@ export default [{
   }, {
     file: `${sections.a}/Base_Main_Door_Extra.stl`,
     color: colors.secondary
-  }, {
-    file: `${sections.a}/Motor_Mock.stl`,
-    color: '999999'
   }]
 }, {
   // Base Section B Rotation

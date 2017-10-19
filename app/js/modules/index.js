@@ -47,7 +47,50 @@ function onLoad() {
   planeGeo.translate(0, 0, 89)
   planeGeo.rotateX(Math.PI / 2)
   var plane = new THREE.Mesh(planeGeo, planeMat)
+  plane.receiveShadow = true;
   scene.add(plane)
+
+  // new rotation logics
+  window.rotateAxis = (val, id) => {
+    var rads = (Math.PI * 2) * (val / 100)
+    switch (id) {
+      case 'a':
+        scene.groups.a.rotation.y = rads
+        scene.groups.b.rotation.y = rads
+        scene.groups.c.rotation.y = rads
+        scene.groups.d.rotation.y = rads
+        scene.groups.e.rotation.y = rads
+        scene.groups.f.rotation.y = rads
+        break;
+      case 'b':
+        scene.groups.b.rotation.z = rads
+        scene.groups.c.rotation.z = rads
+        scene.groups.d.rotation.z = rads
+        scene.groups.e.rotation.z = rads
+        scene.groups.f.rotation.z = rads
+        break;
+      case 'c':
+        scene.groups.c.rotation.z = rads
+        scene.groups.d.rotation.z = rads
+        scene.groups.e.rotation.z = rads
+        scene.groups.f.rotation.z = rads
+        break;
+      case 'd':
+        scene.groups.d.rotation.y = rads
+        scene.groups.e.rotation.y = rads
+        scene.groups.f.rotation.y = rads
+        break;
+      case 'e':
+        scene.groups.e.rotation.z = rads
+        scene.groups.f.rotation.z = rads
+        break;
+      case 'f':
+        scene.groups.f.rotation.y = rads
+        break;
+      default:
+        // nuthin bruh
+    }
+  }
 
   // Begin render queue
   scene.render()
