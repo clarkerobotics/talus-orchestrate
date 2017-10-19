@@ -30,6 +30,7 @@ function onLoad() {
 
         var mat = new THREE.MeshLambertMaterial({ color: `#${piece.color}` })
         var item = new THREE.Mesh(geometry, mat)
+        item.castShadow = true;
         sectionGroup.add(item)
       })
     })
@@ -39,16 +40,6 @@ function onLoad() {
   })
   // console.log('groups', groups)
   scene.groups = groups
-
-  // Add a cute base plane
-  var planeGeo = new THREE.PlaneGeometry(1000, 1000, 20)
-  var wireframe = new THREE.WireframeGeometry( planeGeo );
-  var planeMat = new THREE.MeshBasicMaterial({ color: 0xcccccc, side: THREE.DoubleSide })
-  planeGeo.translate(0, 0, 89)
-  planeGeo.rotateX(Math.PI / 2)
-  var plane = new THREE.Mesh(planeGeo, planeMat)
-  plane.receiveShadow = true;
-  scene.add(plane)
 
   // new rotation logics
   window.rotateAxis = (val, id) => {
