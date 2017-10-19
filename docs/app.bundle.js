@@ -44749,7 +44749,7 @@ const sections = {
     file: `${sections.a}/Base_Main_Door_v1.stl`,
     color: colors.secondary
   }, {
-    file: `${sections.a}/Base_Main_Door_extra.stl`,
+    file: `${sections.a}/Base_Main_Door_Extra.stl`,
     color: colors.secondary
   }, {
     file: `${sections.a}/Motor_Mock.stl`,
