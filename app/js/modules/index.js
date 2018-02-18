@@ -19,12 +19,14 @@ function onLoad() {
   // Load all stl files
   stls.forEach(function(section) {
     var sectionGroup = new THREE.Object3D()
+    sectionGroup.translateX(section.translate[0])
+    sectionGroup.translateY(section.translate[1])
+    sectionGroup.translateZ(section.translate[2])
     groups[section.section] = sectionGroup
 
     // load all section pieces
     section.pieces.forEach((piece) => {
       loader.load(`stl/${piece.file}`, function (geometry) {
-        geometry.translate(section.translate[0], section.translate[1], section.translate[2])
         geometry.rotateX(section.rotation[0])
         geometry.rotateY(section.rotation[1])
         geometry.rotateZ(section.rotation[2])
@@ -46,7 +48,6 @@ function onLoad() {
   groups['0'].add(groups.a)
   sectionGroups = groups['0']
   sectionGroups.scale.set(0.4, 0.4, 0.4)
-  console.log('scene.groups.c', groups.c)
 
   scene.add(sectionGroups);
   scene.groups = groups
@@ -62,18 +63,13 @@ function onLoad() {
         scene.groups.b.rotation.z = rads
         break;
       case 'c':
-        // TODO: this!
-        console.log('val', val / 100)
-        // scene.groups.c.position.y = scene.groups.c.position.y + Math.sin(val/100)
-        // scene.groups.c.position.x = scene.groups.c.position.x + Math.cos(val/100) + 1.5
-        scene.groups.c.rotation.z = val / 100
-
+        scene.groups.c.rotation.z = rads / 1.4
         break;
       case 'd':
         scene.groups.d.rotation.y = rads
         break;
       case 'e':
-        scene.groups.e.rotation.z = rads
+        scene.groups.e.rotation.z = (rads - Math.PI) / 1.4
         break;
       case 'f':
         scene.groups.f.rotation.y = rads

@@ -72,55 +72,52 @@ export default [{
 }, {
   // Base Section B Rotation
   section: 'b',
-  translate: [0, 230, 0],
+  translate: [0, 0, 0],
   rotation: [0, Math.PI, 0],
   pieces: [{
-    file: `${sections.b}/RB_Middle_Left_Bottom_v2.stl`,
+    file: `${sections.b}/RB_Middle_Left_Bottom_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Middle_Left_Top_v1.stl`,
+    file: `${sections.b}/RB_Middle_Left_Top_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Middle_Right_Bottom_v1.stl`,
+    file: `${sections.b}/RB_Middle_Right_Bottom_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Middle_Right_Top_v1.stl`,
+    file: `${sections.b}/RB_Middle_Right_Top_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Motor_Cover_v2.stl`,
+    file: `${sections.b}/RB_Motor_Cover_v3.stl`,
     color: colors.secondary
   }, {
-    file: `${sections.b}/RB_Side_Left_v1.stl`,
+    file: `${sections.b}/RB_Side_Left_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Side_Left_Cover_v1.stl`,
+    file: `${sections.b}/RB_Side_Left_Cover_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Side_Right_v1.stl`,
+    file: `${sections.b}/RB_Side_Right_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Side_Right_Cover_v1.stl`,
+    file: `${sections.b}/RB_Side_Right_Cover_v3.stl`,
     color: colors.primary
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section C Rotation
   section: 'c',
   translate: [0, 230, 0],
   rotation: [0, Math.PI, 0],
   pieces: [{
-    file: `${sections.c}/RC_Left_Main_v2.stl`,
-    color: colors.primary
-  }, {
-    file: `${sections.c}/RC_Right_Main_v2.stl`,
+    file: `${sections.c}/RC_Main_v1.stl`,
     color: colors.primary
   }, {
     file: `${sections.c}/RC_Motor_Mount_v2.stl`,
     color: colors.secondary
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section D Rotation
   section: 'd',
-  translate: [0, 472, 0],
+  translate: [0, 240, 0],
   rotation: [0, Math.PI, 0],
   pieces: [{
     file: `${sections.d}/RD_Base_v2.stl`,
@@ -145,9 +142,9 @@ export default [{
     color: colors.primary
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section E Rotation
   section: 'e',
-  translate: [0, 472, 0],
+  translate: [0, 0, 0],
   rotation: [0, 0, 0],
   pieces: [{
     file: `${sections.e}/RE_Main_v3.stl`,
@@ -160,9 +157,9 @@ export default [{
     color: '999999'
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section F Rotation
   section: 'f',
-  translate: [0, 472, 0],
+  translate: [0, 0, 0],
   rotation: [0, 0, 0],
   pieces: [{
     file: `${sections.f}/Toolhead_QuickClip_Base_v4.stl`,
