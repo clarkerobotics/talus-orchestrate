@@ -111,12 +111,14 @@ function onLoad() {
   // Load all stl files
   __WEBPACK_IMPORTED_MODULE_0__stlFiles__["a" /* default */].forEach(function (section) {
     var sectionGroup = new THREE.Object3D();
+    sectionGroup.translateX(section.translate[0]);
+    sectionGroup.translateY(section.translate[1]);
+    sectionGroup.translateZ(section.translate[2]);
     groups[section.section] = sectionGroup;
 
     // load all section pieces
     section.pieces.forEach(piece => {
       loader.load(`stl/${piece.file}`, function (geometry) {
-        geometry.translate(section.translate[0], section.translate[1], section.translate[2]);
         geometry.rotateX(section.rotation[0]);
         geometry.rotateY(section.rotation[1]);
         geometry.rotateZ(section.rotation[2]);
@@ -138,7 +140,6 @@ function onLoad() {
   groups['0'].add(groups.a);
   sectionGroups = groups['0'];
   sectionGroups.scale.set(0.4, 0.4, 0.4);
-  console.log('scene.groups.c', groups.c);
 
   scene.add(sectionGroups);
   scene.groups = groups;
@@ -154,18 +155,13 @@ function onLoad() {
         scene.groups.b.rotation.z = rads;
         break;
       case 'c':
-        // TODO: this!
-        console.log('val', val / 100);
-        // scene.groups.c.position.y = scene.groups.c.position.y + Math.sin(val/100)
-        // scene.groups.c.position.x = scene.groups.c.position.x + Math.cos(val/100) + 1.5
-        scene.groups.c.rotation.z = val / 100;
-
+        scene.groups.c.rotation.z = rads / 1.4;
         break;
       case 'd':
         scene.groups.d.rotation.y = rads;
         break;
       case 'e':
-        scene.groups.e.rotation.z = rads;
+        scene.groups.e.rotation.z = (rads - Math.PI) / 1.4;
         break;
       case 'f':
         scene.groups.f.rotation.y = rads;
@@ -44792,55 +44788,52 @@ const sections = {
 }, {
   // Base Section B Rotation
   section: 'b',
-  translate: [0, 230, 0],
+  translate: [0, 0, 0],
   rotation: [0, Math.PI, 0],
   pieces: [{
-    file: `${sections.b}/RB_Middle_Left_Bottom_v2.stl`,
+    file: `${sections.b}/RB_Middle_Left_Bottom_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Middle_Left_Top_v1.stl`,
+    file: `${sections.b}/RB_Middle_Left_Top_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Middle_Right_Bottom_v1.stl`,
+    file: `${sections.b}/RB_Middle_Right_Bottom_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Middle_Right_Top_v1.stl`,
+    file: `${sections.b}/RB_Middle_Right_Top_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Motor_Cover_v2.stl`,
+    file: `${sections.b}/RB_Motor_Cover_v3.stl`,
     color: colors.secondary
   }, {
-    file: `${sections.b}/RB_Side_Left_v1.stl`,
+    file: `${sections.b}/RB_Side_Left_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Side_Left_Cover_v1.stl`,
+    file: `${sections.b}/RB_Side_Left_Cover_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Side_Right_v1.stl`,
+    file: `${sections.b}/RB_Side_Right_v3.stl`,
     color: colors.primary
   }, {
-    file: `${sections.b}/RB_Side_Right_Cover_v1.stl`,
+    file: `${sections.b}/RB_Side_Right_Cover_v3.stl`,
     color: colors.primary
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section C Rotation
   section: 'c',
   translate: [0, 230, 0],
   rotation: [0, Math.PI, 0],
   pieces: [{
-    file: `${sections.c}/RC_Left_Main_v2.stl`,
-    color: colors.primary
-  }, {
-    file: `${sections.c}/RC_Right_Main_v2.stl`,
+    file: `${sections.c}/RC_Main_v1.stl`,
     color: colors.primary
   }, {
     file: `${sections.c}/RC_Motor_Mount_v2.stl`,
     color: colors.secondary
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section D Rotation
   section: 'd',
-  translate: [0, 472, 0],
+  translate: [0, 240, 0],
   rotation: [0, Math.PI, 0],
   pieces: [{
     file: `${sections.d}/RD_Base_v2.stl`,
@@ -44865,9 +44858,9 @@ const sections = {
     color: colors.primary
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section E Rotation
   section: 'e',
-  translate: [0, 472, 0],
+  translate: [0, 0, 0],
   rotation: [0, 0, 0],
   pieces: [{
     file: `${sections.e}/RE_Main_v3.stl`,
@@ -44880,9 +44873,9 @@ const sections = {
     color: '999999'
   }]
 }, {
-  // Base Section B Rotation
+  // Base Section F Rotation
   section: 'f',
-  translate: [0, 472, 0],
+  translate: [0, 0, 0],
   rotation: [0, 0, 0],
   pieces: [{
     file: `${sections.f}/Toolhead_QuickClip_Base_v4.stl`,
