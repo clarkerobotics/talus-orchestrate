@@ -5,11 +5,24 @@ See live demo [Here](https://clarkerobotics.github.io/talus-orchestrate/)
 
 #### Built with:
   * Three.js (STLs from Fusion 360)
-  * Web Components Spec (Soon!)
+  * Vuejs
   * CSS & HTML
   * Webpack
 
-### Setup & Build
-  * `npm i` - install it!
-  * `npm run dev` - local development
-  * `npm run build` - built for publishing
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
