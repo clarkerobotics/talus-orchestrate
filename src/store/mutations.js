@@ -5,4 +5,8 @@ export default {
     state[key] = value
   },
 
+  UPDATE_JOINT(state, { id, value}) {
+    state.joints[id] = value
+  },
+
 }

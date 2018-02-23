@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 const axis = [{
   name: 'Section A',
@@ -55,31 +56,32 @@ export default {
   },
 
   methods: {
+		...mapActions(['updateJoint']),
     rotateAxis(val, id) {
-      console.log('val, id', val, id)
-    	// var rads = (Math.PI * 2) * (val / 100)
-    	// switch (id) {
-    	// 	case 'a':
-    	// 		scene.groups.a.rotation.y = rads
-    	// 		break;
-    	// 	case 'b':
-    	// 		scene.groups.b.rotation.z = rads
-    	// 		break;
-    	// 	case 'c':
-    	// 		scene.groups.c.rotation.z = rads / 1.4
-    	// 		break;
-    	// 	case 'd':
-    	// 		scene.groups.d.rotation.y = rads
-    	// 		break;
-    	// 	case 'e':
-    	// 		scene.groups.e.rotation.z = (rads - Math.PI) / 1.4
-    	// 		break;
-    	// 	case 'f':
-    	// 		scene.groups.f.rotation.y = rads
-    	// 		break;
-    	// 	default:
-    	// 		// nuthin bruh
-    	// }
+    	const rads = (Math.PI * 2) * (val / 100)
+			let rotation = 'y'
+			let value = rads
+    	switch (id) {
+    		case 'b':
+    			rotation = 'z'
+    			break;
+    		case 'c':
+    			value = rads / 1.4
+					rotation = 'z'
+    			break;
+    		case 'e':
+    			value = (rads - Math.PI) / 1.4
+					rotation = 'z'
+    			break;
+    		default:
+    			// nuthin bruh
+    	}
+			console.log('rotateAxis', id, value)
+
+			this.updateJoint({
+				id,
+				value
+			})
     },
   },
 }
