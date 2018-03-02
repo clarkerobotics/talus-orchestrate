@@ -5,7 +5,7 @@
 	<div class="axis-controls">
     <div v-for="item in axis">
       <label>{{item.name}}</label>
-      <input type="range" :min="item.min" :max="item.max" value="0" @input="rotateAxis(this, item.label)">
+      <input type="range" :min="item.min" :max="item.max" v-model="item.active" @input="rotateAxis(item, item.label)">
     </div>
 	</div>
 </div>
@@ -57,8 +57,8 @@ export default {
 
   methods: {
 		...mapActions(['updateJoint']),
-    rotateAxis(val, id) {
-    	const rads = (Math.PI * 2) * (val / 100)
+    rotateAxis(axis, id) {
+    	const rads = (Math.PI * 2) * (parseInt(axis.active, 10) / 100)
 			let rotation = 'y'
 			let value = rads
     	switch (id) {
@@ -76,12 +76,9 @@ export default {
     		default:
     			// nuthin bruh
     	}
-			console.log('rotateAxis', id, value)
 
-			this.updateJoint({
-				id,
-				value
-			})
+			this.updateJoint({ id, value })
+	    this.$event.$emit('UPDATE:JOINT', { id, value })
     },
   },
 }

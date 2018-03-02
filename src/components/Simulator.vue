@@ -71,8 +71,29 @@ export default {
       this.scene.render()
     },
 
-    updateJoints() {
-      console.log('this.joints', this.joints)
+    updateJoints({id, value}) {
+      switch (id) {
+    		case 'a':
+          this.scene.groups.a.rotation.y = value
+    			break;
+    		case 'b':
+          this.scene.groups.b.rotation.z = value
+    			break;
+    		case 'c':
+          this.scene.groups.c.rotation.z = value
+    			break;
+    		case 'd':
+          this.scene.groups.d.rotation.y = value
+    			break;
+    		case 'e':
+          this.scene.groups.e.rotation.z = value
+    			break;
+    		case 'f':
+          this.scene.groups.f.rotation.y = value
+    			break;
+    		default:
+    			// nuthin bruh
+    	}
     },
   },
 
@@ -83,6 +104,10 @@ export default {
     })
 
     this.init()
+  },
+
+  created() {
+    this.$event.$on('UPDATE:JOINT', this.updateJoints)
   },
 
   watch: {
