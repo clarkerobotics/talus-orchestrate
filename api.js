@@ -54,6 +54,12 @@ ws = socketIO.listen(server)
 
 ws.on('connection', (client) => {
   console.log('Connected!', client.id)
+
+  // Listen for actionable events coming through
+  client.on('WS:CLIENT', (data) => {
+    if (!data) return
+    console.log('WS:CLIENT::', data)
+  })
 })
 ws.on('disconnect', () => {
   console.log('Disconnect!')

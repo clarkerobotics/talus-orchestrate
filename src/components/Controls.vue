@@ -8,6 +8,9 @@
       <input type="range" :min="item.min" :max="item.max" v-model="item.active" @input="rotateAxis(item, item.label)">
     </div>
 		<!-- <div class="axis-reset">
+			<button class="btn-reset">Enable</button>
+		</div> -->
+		<!-- <div class="axis-reset">
 			<button class="btn-reset">Reset All</button>
 		</div> -->
 	</div>
@@ -82,6 +85,11 @@ export default {
 
 			this.updateJoint({ id, value })
 	    this.$event.$emit('UPDATE:JOINT', { id, value })
+			this.$socket.emit('WS:CLIENT', {
+		    id,
+				value,
+		    key: 'joint'
+		  })
     },
   },
 }
