@@ -116,7 +116,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .simulator,
 #simulator-wrap {
   height: calc(100vh - 80px);

@@ -87,7 +87,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "../scss/range_input.scss";
 
 .controls {
@@ -98,41 +98,12 @@ export default {
   position: fixed;
   height: calc(100vh - 80px);
   width: 25%;
-}
-.controls h2 {
-	font: 300 23pt/24pt Avenir, Helvetica, sans-serif;
-	color: #2b2c3a;
-	text-align: center;
-}
 
-input[type=range] {
-  -webkit-appearance: none;
-  border: 1px solid #2b2c3a;
-  border-radius: 20px;
-  overflow: hidden;
-  outline: none;
-  width: 100%;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  /* height: 16px; */
-  background: rgba(255,255,255,0.2);
-  border: none;
-}
-
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 30px;
-  width: 50px;
-  border-radius: 15px;
-  background: #2b2c3a;
-	margin: 1px;
-}
-
-input[type=range]:focus {
-  outline: none;
+	h2 {
+		font: 300 23pt/24pt Avenir, Helvetica, sans-serif;
+		color: #2b2c3a;
+		text-align: center;
+	}
 }
 
 .axis-controls {

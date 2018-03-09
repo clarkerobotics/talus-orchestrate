@@ -1,5 +1,7 @@
 export default {
 
+  wsActive: false,
+
   toolhead: undefined,
 
   // Joint defaults

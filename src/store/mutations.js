@@ -9,4 +9,8 @@ export default {
     state.joints[id] = value
   },
 
+  WS_ACTIVE(state, bool) {
+    state.wsActive = bool
+  },
+
 }

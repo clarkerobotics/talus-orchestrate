@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .menu {
 	background: #2b2c3a;
 	border-top: 1px solid rgba(255,255,255,0.1);
@@ -63,35 +63,40 @@ li {
 
 .menu-content {
 	width: 75%;
+
+	h2 {
+		font: 300 23pt/24pt Avenir, Helvetica, sans-serif;
+		color: white;
+		text-align: center;
+	}
 }
 
-.menu-content h2 {
-	font: 300 23pt/24pt Avenir, Helvetica, sans-serif;
-	color: white;
-	text-align: center;
-}
+.menu-content
 
 .github {
 	position: absolute;
 	right: 0;
 	bottom: 0;
-}
-.github a {
-	display: flex;
-	height: 80px;
-	width: 80px;
-}
-.github img {
-	filter: invert(.6);
-	width: 30px;
-	margin: auto;
+
+	a {
+		display: flex;
+		height: 80px;
+		width: 80px;
+	}
+
+	img {
+		filter: invert(.6);
+		width: 30px;
+		margin: auto;
+	}
 }
 
 nav {
 	width: 25%;
-}
-nav ul {
-	display: flex;
+
+	ul {
+		display: flex;
+	}
 }
 
 .nav-item {
@@ -101,22 +106,26 @@ nav ul {
 	flex-direction: column;
 	flex: 1 1 auto;
 	text-align: center;
+
+	span {
+		font-size: 9pt;
+	}
+
+	img {
+		filter: invert(.8);
+	  max-height: 35px;
+		width: 100%;
+		margin: 13px 0 3px;
+
+		&:hover {
+			filter: invert(1);
+		}
+
+		&:nth-child(1) {
+			max-height: 30px;
+		  margin-top: 18px;
+		}
+	}
 }
 
-.nav-item img {
-	filter: invert(.8);
-  max-height: 35px;
-	width: 100%;
-	margin: 13px 0 3px;
-}
-.nav-item img:hover {
-	filter: invert(1);
-}
-.nav-item img:nth-child(1) {
-	max-height: 30px;
-  margin-top: 18px;
-}
-.nav-item span {
-	font-size: 9pt;
-}
 </style>
